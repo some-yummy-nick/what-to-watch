@@ -1,6 +1,13 @@
-import React from "react";
+import React , {PureComponent} from "react";
 import {Main} from "../Main/Main.jsx";
 
-export const App = () => {
-  return <Main films={[`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Aviator`]}/>;
-};
+export class App extends PureComponent{
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const {films} = this.props;
+
+    return <Main films={films}/>;
+  }
+}

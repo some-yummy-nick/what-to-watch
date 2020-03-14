@@ -20,10 +20,10 @@ exports[`Main correctly renders after relaunch 1`] = `
         </desc>
         <g
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <polygon
             fill="#EEE5B5"
@@ -37,32 +37,32 @@ exports[`Main correctly renders after relaunch 1`] = `
         viewBox="0 0 27 27"
       >
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M23.8571 0H16V3.14286H23.8571V11H27V3.14286V0H23.8571Z"
           fill="#FFF9D9"
-          fill-opacity="0.7"
-          fill-rule="evenodd"
+          fillOpacity="0.7"
+          fillRule="evenodd"
         />
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M27 23.8571V16H23.8571V23.8571H16V27H23.8571H27L27 23.8571Z"
           fill="#FFF9D9"
-          fill-opacity="0.7"
-          fill-rule="evenodd"
+          fillOpacity="0.7"
+          fillRule="evenodd"
         />
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M0 3.14286L0 11H3.14286L3.14286 3.14286L11 3.14286V0H3.14286H0L0 3.14286Z"
           fill="#FFF9D9"
-          fill-opacity="0.7"
-          fill-rule="evenodd"
+          fillOpacity="0.7"
+          fillRule="evenodd"
         />
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M3.14286 27H11V23.8571H3.14286L3.14286 16H0L0 23.8571V27H3.14286Z"
           fill="#FFF9D9"
-          fill-opacity="0.7"
-          fill-rule="evenodd"
+          fillOpacity="0.7"
+          fillRule="evenodd"
         />
       </symbol>
       <symbol
@@ -70,10 +70,10 @@ exports[`Main correctly renders after relaunch 1`] = `
         viewBox="0 0 18 14"
       >
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M2.40513 5.35353L6.1818 8.90902L15.5807 0L18 2.80485L6.18935 14L0 8.17346L2.40513 5.35353Z"
           fill="#EEE5B5"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </symbol>
       <symbol
@@ -88,20 +88,20 @@ exports[`Main correctly renders after relaunch 1`] = `
         </desc>
         <g
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           id="Artboard"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
         >
           <polygon
             fill="#EEE5B5"
-            fill-rule="nonzero"
+            fillRule="nonzero"
             id="Line"
             points="0 -1.11910481e-13 4 -1.11910481e-13 4 21 0 21"
           />
           <polygon
             fill="#EEE5B5"
-            fill-rule="nonzero"
+            fillRule="nonzero"
             id="Line"
             points="10 -1.11910481e-13 14 -1.11910481e-13 14 21 10 21"
           />
@@ -366,12 +366,13 @@ exports[`Main correctly renders after relaunch 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Macbeth"
               height="175"
               src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
               width="280"
@@ -384,79 +385,7 @@ exports[`Main correctly renders after relaunch 1`] = `
               className="small-movie-card__link"
               href="movie-page.html"
             >
-              один
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Bohemian Rhapsody"
-              height="175"
-              src="img/bohemian-rhapsody.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              два
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Macbeth"
-              height="175"
-              src="img/macbeth.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              три
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Aviator"
-              height="175"
-              src="img/aviator.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              четыре
+              Macbeth
             </a>
           </h3>
         </article>
