@@ -1,8 +1,9 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {SmallMovieCard} from "../SmallMovieCard/SmallMovieCard.jsx";
+import {connect} from "react-redux";
 
-export class CatalogMoviesList extends PureComponent {
+class CatalogMoviesList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,10 +18,10 @@ export class CatalogMoviesList extends PureComponent {
   }
 
   render() {
-    const {films} = this.props;
+    const {films, genre} = this.props;
     return <div className="catalog__movies-list">
-      {films.map((item, i) => {
-        return <SmallMovieCard key={`film-${i}`} film={item} onHover={this._itemHoverHandler.bind(this, item)}/>
+      {films.filter(film => genre !== "All genres" ? film.genre === genre : true).map(item => {
+        return <SmallMovieCard key={`film-${item.id}`} film={item} onHover={this._itemHoverHandler.bind(this, item)}/>
       })}
     </div>;
   }
@@ -31,3 +32,13 @@ CatalogMoviesList.propTypes = {
     name: PropTypes.string
   })),
 };
+
+const mapStateToProps = state => ({
+  genre: state.genre
+});
+
+export {CatalogMoviesList}
+
+export default connect(
+  mapStateToProps,
+)(CatalogMoviesList);

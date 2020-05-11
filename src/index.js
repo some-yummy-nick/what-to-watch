@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {App} from "./components/App/App.jsx";
-import {films} from "./mocks/films";
+import App from "./components/App/App.jsx";
+import {Provider} from "react-redux";
+import store from "./store";
 
 const init = () => {
   ReactDOM.render(
-      <App films={films}/>,
-      document.getElementById(`root`)
+    <Provider store={store}>
+      <App/>
+    </Provider>,
+    document.getElementById(`root`)
   );
 };
 

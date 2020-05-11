@@ -1,13 +1,17 @@
-import React , {PureComponent} from "react";
+import React from "react";
+import {connect} from "react-redux";
+
 import {Main} from "../Main/Main.jsx";
 
-export class App extends PureComponent{
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const {films} = this.props;
+const App = ({films}) =>
+  <Main films={films}/>;
 
-    return <Main films={films}/>;
-  }
-}
+const mapStateToProps = state => ({
+  films: state.films
+});
+
+export {App};
+
+export default connect(
+  mapStateToProps,
+)(App);
