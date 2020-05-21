@@ -2,9 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import CatalogMoviesList from "../CatalogMoviesList/CatalogMoviesList.jsx";
 import Genres from "../Genres/Genres";
+import BigPlayer from "../BigPlayer/BigPlayer.jsx";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../actions";
 
-export const Main = (props) => {
-  const {films} = props;
+const Main = (props) => {
+  const {films, currentFilm, isPlaying, handlePlay} = props;
+
   return <div>
     <div className="visually-hidden">
       <svg xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +36,9 @@ export const Main = (props) => {
           <path fillRule="evenodd" clipRule="evenodd"
                 d="M2.40513 5.35353L6.1818 8.90902L15.5807 0L18 2.80485L6.18935 14L0 8.17346L2.40513 5.35353Z"
                 fill="#EEE5B5"/>
+        </symbol>
+        <symbol id="play" viewBox="0 0 41.999 41.999">
+          <path d="M36.068 20.176l-29-20A1 1 0 005.5.999v40a1 1 0 001.568.823l29-20a.999.999 0 000-1.646z"></path>
         </symbol>
         <symbol id="pause" viewBox="0 0 14 21">
           <title>Artboard</title>
@@ -72,19 +79,19 @@ export const Main = (props) => {
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+            <img src={currentFilm.image} alt="The Grand Budapest Hotel poster" width="218"
                  height="327"/>
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
+            <h2 className="movie-card__title">{currentFilm.name}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">Drama</span>
-              <span className="movie-card__year">2014</span>
+              <span className="movie-card__genre">{currentFilm.genre}</span>
+              <span className="movie-card__year">{currentFilm.year}</span>
             </p>
 
             <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
+              <button onClick={handlePlay} className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
                   <use xlinkHref="#play-s"></use>
                 </svg>
@@ -101,7 +108,7 @@ export const Main = (props) => {
         </div>
       </div>
     </section>
-
+    {isPlaying && <BigPlayer/>}
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
@@ -137,3 +144,19 @@ Main.propTypes = {
   })).isRequired,
   handleHover: PropTypes.func
 };
+
+const mapStateToProps = state => ({
+  currentFilm: state.currentFilm,
+  isPlaying: state.isPlaying
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handlePlay: () => dispatch(ActionCreator.setIsPlaying()),
+});
+
+export {Main};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {VideoPlayer} from "../VideoPlayer/VideoPlayer.jsx"
+import {SmallPlayer} from "../SmallPlayer/SmallPlayer.jsx"
+
 export const SmallMovieCard = (props) => {
   const {film, onHover} = props;
   return <article className="small-movie-card catalog__movies-card" onMouseOver={onHover}>
-      <VideoPlayer src={film.video} poster={film.image}/>
+    <SmallPlayer film={film}/>
     <h3 className="small-movie-card__title">
       <a className="small-movie-card__link" href="movie-page.html">{film.name}</a>
     </h3>

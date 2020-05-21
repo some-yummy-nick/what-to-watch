@@ -1,17 +1,19 @@
 import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
-export class VideoPlayer extends PureComponent {
+export class SmallPlayer extends PureComponent {
   constructor(props) {
     super(props);
     this.videoRef = React.createRef();
     this.state = {
-      hover: false
+      isPlaying: false
     };
     this.toggleHover = this.toggleHover.bind(this);
   }
 
   componentDidMount() {
-    const {src, poster} = this.props;
+    const poster = this.props.film.image;
+    const src = this.props.film.video;
     const video = this.videoRef.current;
     video.src = src;
     video.poster = poster;
@@ -30,11 +32,10 @@ export class VideoPlayer extends PureComponent {
 
   componentDidUpdate() {
     const video = this.videoRef.current;
-    const {src} = this.props;
+    const src = this.props.film.video;
 
-    if (this.state.hover) {
+    if (this.state.isPlaying) {
       video.src = src;
-
       setTimeout(this.playVideo.bind(this), 1000);
     } else {
       video.pause();
@@ -45,13 +46,20 @@ export class VideoPlayer extends PureComponent {
 
   toggleHover() {
     this.setState({
-      hover: !this.state.hover
+      isPlaying: !this.state.isPlaying
     })
   };
 
   render() {
     return <div className="small-movie-card__image" onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
-      <video ref={this.videoRef} width="100%" height="175px"/>
+      <video ref={this.videoRef} width="100%" height="100%"/>
     </div>
   }
 }
+
+SmallPlayer.propTypes = {
+  film: PropTypes.shape({
+    image: PropTypes.string,
+    video: PropTypes.string
+  }),
+};

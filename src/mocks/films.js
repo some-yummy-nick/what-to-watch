@@ -4,7 +4,7 @@ export const films = [
     genre:"Kids & Family",
     name: `Fantastic Beasts`,
     image:`img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
-    video:`https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
+    video:`https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b8/WikiGap_2020_Prague.webm/WikiGap_2020_Prague.webm.480p.vp9.webm`
   },
   {
     id:1,
